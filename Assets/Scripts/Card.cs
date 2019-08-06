@@ -7,7 +7,7 @@ public class Card : ScriptableObject
 {
 
     new public string name = "New Card";    // Name of the item
-    public Sprite icon = null;              // Item icon
+    public Sprite face = null;              // Item icon
     public string suit;
     public int rank;
 

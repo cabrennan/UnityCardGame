@@ -85,8 +85,9 @@ public class Deck : MonoBehaviour
         foreach (Card c in deck)
         {
             Debug.Log("Working on " + c.name);
-            GameObject newcard = Instantiate(c, positions[i], transform.roatation) as GameObject;
-             newcard.name = c.name;
+            Instantiate(c, new Vector3(-2.93f, 2.43f, 1.23f), Quaternion.identity);
+            
+            // newcard.name = c.name;
             //c.  = positions[i];
             i++;
         }
