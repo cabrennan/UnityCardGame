@@ -6,8 +6,9 @@ using UnityEditor;
 
 public class Deck : MonoBehaviour
 {
-    public Vector3 thisPos = new Vector3(-2.93f, 2.43f, 1.28f);
     public GameObject obj;
+    public Vector3 point = new Vector3(7.05f, 1.29f, 1.1f);
+    public Quaternion rotation = Quaternion.Euler(50f, 0f, 0f);
 
     void Awake()
     {
@@ -47,10 +48,10 @@ public class Deck : MonoBehaviour
     {
         float[,] positions = new float[,]
         {
-            { -2.93f, 2.43f, 1.28f },
-            {-1.17f, 2.45f, 1.3f },
-            { 1.62f, 2.5f, 1.35f },
-            { 3.42f, 02.54f, 1.39f }
+            { -2.93f, 2.43f, 1.28f, 45f, 0f, 0f },
+            {-1.17f, 2.45f, 1.3f, 45f, 0f, 0f },
+            { 1.62f, 2.5f, 1.35f,  45f, 0f, 0f},
+            { 3.42f, 02.54f, 1.39f, 45f, 0f, 0f }
         };
 
         var idx = 0;
@@ -58,26 +59,19 @@ public class Deck : MonoBehaviour
         foreach (Card c in deck)
         {
             
-            //(Vector3)pos.Dequeue();
-            Debug.Log("position is: " + pos);
-            Debug.Log("card is: " + c.name);
-
-
-            
-
-            // Vector3[] positionArray = new[] { new Vector3(0f, 0f, 0f), new Vector3(1f, 1f, 1f) };
-
             obj = GameObject.Find(c.name);
-            var stuff  = pos.Dequeue();
+            //obj = GameObject.FindWithTag(c.name);
+            point = new Vector3(positions[idx,0], positions[idx,1], positions[idx,2]);
+            rotation = Quaternion.Euler(positions[idx, 3], positions[idx, 4], positions[idx, 5]);
 
-            Debug.Log("Stuff: " + stuff.ToString());
+            if (c.enabled == true)
+            {
+                obj.GetComponent<SpriteRenderer>().sprite = c.face;
+                
+            }
 
-            //thisPos = StringToVector3(stuff.ToString);
-
-            Vector3 point = new Vector3(positions[idx,0], positions[idx,1], positions[idx,2]);
-
-
-            Instantiate(obj, point, Quaternion.identity);
+            Instantiate(obj, point, rotation);
+            Debug.Log("Placed " + c.name + "At point: " + point + "Enabled is: " + c.enabled);
             idx++;
         }
 

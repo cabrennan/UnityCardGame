@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AceOfClubs
   m_EditorClassIdentifier: 
   name: AceOfClubs
-  icon: {fileID: 21300000, guid: ca82bbe9633bb084e9924e040df26862, type: 3}
+  face: {fileID: 21300000, guid: ca82bbe9633bb084e9924e040df26862, type: 3}
   suit: Clubs
   rank: 14
   enabled: 1

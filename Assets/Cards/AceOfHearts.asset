@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AceOfHearts
   m_EditorClassIdentifier: 
   name: AceOfHearts
-  icon: {fileID: 21300000, guid: aedd4ca63826f1745a2829138e838684, type: 3}
+  face: {fileID: 21300000, guid: aedd4ca63826f1745a2829138e838684, type: 3}
   suit: Hearts
   rank: 14
   enabled: 1
